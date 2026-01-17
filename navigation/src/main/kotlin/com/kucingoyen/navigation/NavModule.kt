@@ -1,5 +1,5 @@
 package com.kucingoyen.navigation
 
 enum class NavModule {
-	AuthModule,
+	AuthModule, DashboardModule
 }

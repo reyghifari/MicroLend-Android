@@ -6,5 +6,9 @@ sealed interface BaseNav {
         SplashScreen, LoginScreen
     }
 
+    enum class Dashboard : BaseNav {
+        DashboardScreen
+    }
+
 }
 

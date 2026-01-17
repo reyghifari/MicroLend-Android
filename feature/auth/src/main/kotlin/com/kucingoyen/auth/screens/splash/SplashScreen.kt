@@ -8,16 +8,23 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.navigation.NavHostController
 import com.kucingoyen.core.theme.BaseColor
 import com.kucingoyen.core.R
+import kotlinx.coroutines.delay
 
 @Composable
-fun SplashScreen(navHostController: NavHostController){
+fun SplashScreen(navigateToLogin : () -> Unit){
+
+    LaunchedEffect(key1 = true) {
+        delay(2000)
+        navigateToLogin()
+    }
+
     Box(
         modifier = Modifier
             .fillMaxSize()

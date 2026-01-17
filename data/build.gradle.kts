@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.raihan.data"
+    namespace = "com.kucingoyen.data"
     compileSdk = 36
 
     defaultConfig {

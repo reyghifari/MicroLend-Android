@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:688701346683:android:47b1cdffccdf7c112023de",
         "android_client_info": {
-          "package_name": "com.raihan.baseappcompose.dev"
+          "package_name": "com.kucingoyen.microlend.dev"
         }
       },
       "oauth_client": [],
@@ -28,7 +28,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:688701346683:android:9c969f5319891c3b2023de",
         "android_client_info": {
-          "package_name": "com.raihan.baseappcompose.dev"
+          "package_name": "com.kucingoyen.microlend.dev"
         }
       },
       "oauth_client": [],
@@ -47,7 +47,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:688701346683:android:7eefc9f5c815eff72023de",
         "android_client_info": {
-          "package_name": "com.raihan.baseappcompose"
+          "package_name": "com.kucingoyen.microlend"
         }
       },
       "oauth_client": [],
@@ -66,7 +66,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:688701346683:android:5d7f55995f9741652023de",
         "android_client_info": {
-          "package_name": "com.raihan.baseappcompose.dev"
+          "package_name": "com.kucingoyen.microlend.dev"
         }
       },
       "oauth_client": [],

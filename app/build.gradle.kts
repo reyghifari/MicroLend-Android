@@ -13,11 +13,11 @@ plugins {
 }
 
 android {
-    namespace = "com.raihan.baseappcompose"
+    namespace = "com.kucingoyen.microlend"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.raihan.baseappcompose"
+        applicationId = "com.kucingoyen.microlend"
         minSdk = 26
         targetSdk = 36
         versionCode = 1

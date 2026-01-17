@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.raihan.entity"
+    namespace = "com.kucingoyen.entity"
     compileSdk = 36
 
     defaultConfig {

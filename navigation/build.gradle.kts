@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.raihan.navigation"
+    namespace = "com.kucingoyen.navigation"
     compileSdk = 36
 
     defaultConfig {

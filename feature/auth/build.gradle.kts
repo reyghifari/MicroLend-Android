@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.raihan.auth"
+    namespace = "com.kucingoyen.auth"
     compileSdk = 36
 
     defaultConfig {

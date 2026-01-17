@@ -1,0 +1,9 @@
+com.kucingoyen.core
+font nunito_black
+font nunito_bold
+font nunito_extra_bold
+font nunito_extra_light
+font nunito_light
+font nunito_medium
+font nunito_regular
+font nunito_semi_bold

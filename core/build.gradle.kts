@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.raihan.core"
+    namespace = "com.kucingoyen.core"
     compileSdk = 36
 
     defaultConfig {

@@ -21,7 +21,7 @@ fun BaseNavGraph(navController : NavHostController){
             route = NavModule.AuthModule.name){
 
             composable(route = BaseNav.Auth.LoginScreen.name) { navBackStackEntry ->
-                LoginScreen(navController)
+                LoginScreen()
             }
         }
     }

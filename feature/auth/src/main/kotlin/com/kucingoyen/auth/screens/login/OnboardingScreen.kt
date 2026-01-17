@@ -1,4 +1,4 @@
-package com.kucingoyen.auth.screens.splash
+package com.kucingoyen.auth.screens.login
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -8,6 +8,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -16,11 +17,18 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.kucingoyen.auth.screens.AuthViewModel
+import com.kucingoyen.auth.screens.login.bottomsheet.BottomSheetLogin
+import com.kucingoyen.auth.screens.login.bottomsheet.BottomSheetRegister
 import com.kucingoyen.core.R
 import com.kucingoyen.core.theme.BaseColor
 
 @Composable
-fun MetaMaskWelcomeScreen() {
+fun LoginScreen(
+    viewModel: AuthViewModel = hiltViewModel(),
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -71,7 +79,7 @@ fun MetaMaskWelcomeScreen() {
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             Button(
-                onClick = { /* TODO: Handle Click */ },
+                onClick = {viewModel.updateShowSheetRegister(true) },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(56.dp),
@@ -89,7 +97,7 @@ fun MetaMaskWelcomeScreen() {
             }
 
             Button(
-                onClick = { /* TODO: Handle Click */ },
+                onClick = { viewModel.updateShowSheetLogin(true)},
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(56.dp),
@@ -109,11 +117,14 @@ fun MetaMaskWelcomeScreen() {
         }
 
         Spacer(modifier = Modifier.height(32.dp))
+        BottomSheetLogin(authViewModel = viewModel)
+        BottomSheetRegister(authViewModel = viewModel)
     }
 }
+
 
 @Preview(showBackground = true)
 @Composable
 fun PreviewMetaMaskScreen() {
-    MetaMaskWelcomeScreen()
+    LoginScreen()
 }

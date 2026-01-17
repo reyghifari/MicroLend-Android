@@ -7,7 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.kucingoyen.auth.screens.login.LoginScreen
 import com.kucingoyen.auth.screens.splash.SplashScreen
-import com.kucingoyen.dashboard.screen.DashboardScreen
+import com.kucingoyen.dashboard.DashboardScreen
 
 @Composable
 fun BaseNavGraph(navController : NavHostController){
@@ -24,7 +24,9 @@ fun BaseNavGraph(navController : NavHostController){
             route = NavModule.AuthModule.name){
 
             composable(route = BaseNav.Auth.LoginScreen.name) { navBackStackEntry ->
-                LoginScreen()
+                LoginScreen(){
+                    navController.navigate(NavModule.DashboardModule.name)
+                }
             }
         }
 

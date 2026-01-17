@@ -30,7 +30,7 @@ import com.kucingoyen.core.theme.BaseColor
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BottomSheetLogin(authViewModel: AuthViewModel) {
+fun BottomSheetLogin(authViewModel: AuthViewModel, onLogin : () -> Unit) {
     val showLoginSheet by authViewModel.showSheetLogin.collectAsStateWithLifecycle()
 
     val InputBackground = Color(0xFFF3F4F6)
@@ -91,7 +91,7 @@ fun BottomSheetLogin(authViewModel: AuthViewModel) {
                 Spacer(modifier = Modifier.height(24.dp))
 
                 Button(
-                    onClick = { /* Handle Login */ },
+                    onClick = { onLogin() },
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(56.dp),

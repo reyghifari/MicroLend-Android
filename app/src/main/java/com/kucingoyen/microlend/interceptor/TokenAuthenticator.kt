@@ -1,8 +1,10 @@
 package com.kucingoyen.microlend.interceptor
 
 import android.content.Context
+import androidx.core.net.toUri
 import com.kucingoyen.data.cache.AppSessionCache
 import com.kucingoyen.data.di.TagInjection
+import com.kucingoyen.data.utils.ApiConst
 import dagger.hilt.android.qualifiers.ApplicationContext
 import okhttp3.Authenticator
 import okhttp3.Request
@@ -10,8 +12,6 @@ import okhttp3.Response
 import okhttp3.Route
 import javax.inject.Inject
 import javax.inject.Named
-import androidx.core.net.toUri
-import com.kucingoyen.data.utils.ApiConst
 
 internal class TokenAuthenticator @Inject constructor(
     @ApplicationContext private val context: Context,

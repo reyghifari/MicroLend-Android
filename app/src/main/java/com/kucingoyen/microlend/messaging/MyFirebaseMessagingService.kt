@@ -8,11 +8,11 @@ import android.content.Context
 import android.content.Intent
 import android.media.AudioAttributes
 import androidx.core.app.NotificationCompat
-import dagger.hilt.android.AndroidEntryPoint
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import com.kucingoyen.microlend.MainActivity
 import com.kucingoyen.entity.model.DataPushNotification
+import com.kucingoyen.microlend.MainActivity
+import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MyFirebaseMessagingService : FirebaseMessagingService() {

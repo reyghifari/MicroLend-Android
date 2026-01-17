@@ -2,6 +2,9 @@ package com.kucingoyen.microlend.di
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.kucingoyen.core.utils.DispatcherProvider
+import com.kucingoyen.data.di.TagInjection
+import com.kucingoyen.microlend.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,9 +14,6 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Named
 import javax.inject.Singleton
-import com.kucingoyen.microlend.BuildConfig
-import com.kucingoyen.core.utils.DispatcherProvider
-import com.kucingoyen.data.di.TagInjection
 
 
 @Module

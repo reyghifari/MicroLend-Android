@@ -21,8 +21,8 @@ import androidx.compose.ui.unit.dp
 import com.kucingoyen.core.components.BaseButton
 import com.kucingoyen.core.components.BaseOutlineButton
 import com.kucingoyen.core.theme.BaseColor
-import com.kucingoyen.core.theme.BaseFont
 import com.kucingoyen.core.theme.BaseDp
+import com.kucingoyen.core.theme.BaseFont
 
 
 @OptIn(ExperimentalMaterial3Api::class)

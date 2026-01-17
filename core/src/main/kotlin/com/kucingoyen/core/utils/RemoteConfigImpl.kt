@@ -19,8 +19,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
-import kotlin.Any
-import kotlin.String
 
 internal class RemoteConfigImpl @Inject constructor(
     @ApplicationContext private val context: Context,

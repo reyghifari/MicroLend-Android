@@ -1,20 +1,20 @@
 package com.kucingoyen.microlend.di
 
 import android.content.Context
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
-import javax.inject.Named
 import com.chuckerteam.chucker.api.ChuckerInterceptor
+import com.kucingoyen.data.di.TagInjection
 import com.kucingoyen.microlend.BuildConfig
 import com.kucingoyen.microlend.interceptor.AuthInterceptor
 import com.kucingoyen.microlend.interceptor.TokenAuthenticator
-import com.kucingoyen.data.di.TagInjection
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
 import okhttp3.Authenticator
 import okhttp3.Interceptor
 import okhttp3.logging.HttpLoggingInterceptor
+import javax.inject.Named
 
 
 @Module

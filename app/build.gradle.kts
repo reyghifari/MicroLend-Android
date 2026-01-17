@@ -1,7 +1,3 @@
-import org.gradle.kotlin.dsl.debugImplementation
-import org.gradle.kotlin.dsl.implementation
-import org.gradle.kotlin.dsl.releaseImplementation
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)

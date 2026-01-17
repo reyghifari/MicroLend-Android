@@ -13,8 +13,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import com.kucingoyen.core.theme.BaseColor
 import com.kucingoyen.core.R
+import com.kucingoyen.core.theme.BaseColor
 import kotlinx.coroutines.delay
 
 @Composable

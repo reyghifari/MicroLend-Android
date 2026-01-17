@@ -3,6 +3,14 @@ package com.kucingoyen.core.theme
 import androidx.compose.ui.graphics.Color
 
 object BaseColor {
+
+	object MicroLend {
+		val BackgroundColor = Color(0xFFF3D2F0)
+		val ButtonBlack = Color(0xFF191919)
+		val TextPurple = Color(0xFF5A2D5A)
+		val ButtonSecondaryBg = Color(0x33FFFFFF)
+	}
+
 	object Passion {
 		val Plus70 = Color(0xFF2D4C1B)
 		val Plus50 = Color(0xFF447228)

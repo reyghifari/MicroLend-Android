@@ -1,3 +1,4 @@
+int drawable img_microlend_logo 0x0
 int font nunito_black 0x0
 int font nunito_bold 0x0
 int font nunito_extra_bold 0x0

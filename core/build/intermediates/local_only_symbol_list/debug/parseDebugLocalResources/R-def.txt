@@ -1,5 +1,6 @@
 R_DEF: Internal format may change without notice
 local
+drawable img_microlend_logo
 font nunito_black
 font nunito_bold
 font nunito_extra_bold

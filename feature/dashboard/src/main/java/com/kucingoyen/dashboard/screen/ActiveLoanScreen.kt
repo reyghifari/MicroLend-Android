@@ -1,6 +1,7 @@
 package com.kucingoyen.dashboard.screen
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -26,7 +27,7 @@ fun ActiveLoanScreen(modifier: Modifier = Modifier) {
     }
 
     LazyColumn(
-        modifier = modifier.fillMaxWidth().padding(16.dp),
+        modifier = modifier.fillMaxSize().padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         items(loans) { loan ->

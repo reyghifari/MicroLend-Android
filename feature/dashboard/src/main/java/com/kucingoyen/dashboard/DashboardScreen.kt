@@ -18,7 +18,8 @@ val TextGray = Color(0xFFAAAAAA)
 
 @Composable
 fun DashboardScreen(
-    dashboardViewModel: DashboardViewModel = hiltViewModel()
+    dashboardViewModel: DashboardViewModel = hiltViewModel(),
+    requestLoan: () -> Unit = {}
 ) {
     val selectedBar by dashboardViewModel.bottomBarSelected.collectAsStateWithLifecycle()
 
@@ -32,7 +33,9 @@ fun DashboardScreen(
                 HomeScreen(dashboardViewModel, paddingValues)
             }
             1 -> {
-                LoanScreen()
+                LoanScreen(dashboardViewModel){
+                    requestLoan()
+                }
             }
             2 -> {
                 ProfileScreen(dashboardViewModel)

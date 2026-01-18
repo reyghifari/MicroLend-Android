@@ -33,14 +33,16 @@ fun LoanDetailsCard(
     statusLoan: String = "",
     dueDate: String = "",
     collateral: Double = 0.0,
-    onPay: () -> Unit
+    onPay: () -> Unit = {},
+    onCancel: () -> Unit = {}
 ) {
     val isCompleted = statusLoan.equals("COMPLETED", ignoreCase = true)
+    val isRequest = statusLoan.equals("REQUEST", ignoreCase = true)
 
-    val badgeColor = if (isCompleted) {
-        BadgeGreen
-    } else {
-        BadgeYellow
+    val badgeColor = when {
+        isCompleted -> Color(0xFF4CAF50)
+        isRequest -> Color(0xFF2196F3)
+        else -> Color(0xFFFFC107)
     }
 
     val formattedAmount = NumberFormat.getCurrencyInstance(Locale.US).format(loanAmount)
@@ -139,39 +141,61 @@ fun LoanDetailsCard(
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            if (!isCompleted) {
-                Button(
-                    onClick = { onPay() },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(50.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = BaseColor.JetBlack.Normal,
-                    ),
-                    shape = RoundedCornerShape(12.dp)
-                ) {
+            when {
+                isCompleted -> {
                     Text(
-                        text = "PAY NOW",
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Bold,
+                        text = "Loan fully paid off",
+                        fontSize = 14.sp,
+                        color = Color(0xFF4CAF50), // Green
                         fontFamily = FontFamily.Monospace,
+                        fontWeight = FontWeight.Medium,
+                        modifier = Modifier.align(Alignment.CenterHorizontally)
                     )
+                    Spacer(modifier = Modifier.height(8.dp))
                 }
-            } else {
-                Text(
-                    text = "Loan fully paid off",
-                    fontSize = 14.sp,
-                    color = Color(0xFF4CAF50), // Green
-                    fontFamily = FontFamily.Monospace,
-                    fontWeight = FontWeight.Medium,
-                    modifier = Modifier.align(Alignment.CenterHorizontally)
-                )
-                Spacer(modifier = Modifier.height(8.dp))
+                isRequest -> {
+                    Button(
+                        onClick = { onCancel() },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(50.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xFFEF4444),
+                        ),
+                        shape = RoundedCornerShape(12.dp)
+                    ) {
+                        Text(
+                            text = "CANCEL REQUEST",
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold,
+                            fontFamily = FontFamily.Monospace,
+                            color = Color.White
+                        )
+                    }
+                }
+                else -> {
+                    Button(
+                        onClick = { onPay() },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(50.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = BaseColor.JetBlack.Normal,
+                        ),
+                        shape = RoundedCornerShape(12.dp)
+                    ) {
+                        Text(
+                            text = "PAY NOW",
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold,
+                            fontFamily = FontFamily.Monospace,
+                        )
+                    }
+                }
             }
         }
     }
 }
-
 @Composable
 fun StatusBadge(text: String, backgroundColor: Color) {
     Surface(
@@ -237,7 +261,8 @@ fun LoanCardPreview() {
             statusLoan = "COMPLETED",
             dueDate = "2023-12-31",
             collateral = 1000.0,
-            onPay = {}
+            onPay = {},
+            onCancel = {}
         )
     }
 }

@@ -26,10 +26,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import kotlinx.coroutines.launch
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.material3.*
 import com.kucingoyen.core.theme.BaseColor
 
 private object LoanScreenTheme {
@@ -45,14 +43,10 @@ enum class LoanTab(val title: String) {
     Active("Active Loans"),
     Completed("Completed");
 
-    companion object {
-        fun getByIndex(index: Int): LoanTab = entries.getOrElse(index) { Requests }
-    }
 }
 
 @Composable
-fun LoanScreen(
-) {
+fun LoanScreen(dashboardViewModel: DashboardViewModel, onRequestLoan: () -> Unit = {}) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -62,13 +56,17 @@ fun LoanScreen(
         verticalArrangement = Arrangement.spacedBy(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        LoanPagerScreen()
+        LoanPagerScreen(dashboardViewModel){
+            onRequestLoan()
+        }
     }
 }
 
 @OptIn(ExperimentalFoundationApi::class) // Depending on your Compose BOM version
 @Composable
 fun LoanPagerScreen(
+    dashboardViewModel: DashboardViewModel,
+    onRequestLoan: () -> Unit = {}
 ) {
     val tabs = LoanTab.entries
     val pagerState = rememberPagerState(pageCount = { tabs.size })
@@ -122,7 +120,7 @@ fun LoanPagerScreen(
                 .fillMaxWidth()
         ) { pageIndex ->
            when(pageIndex){
-               0 -> LoanListContent(LoanTab.Requests)
+               0 -> RequestLoanScreen( dashboardViewModel, onRequestLoan)
                1 -> ActiveLoanScreen()
                2 -> CompletedLoanScreen()
            }
@@ -131,42 +129,10 @@ fun LoanPagerScreen(
     }
 }
 
-@Composable
-fun LoanListContent(tab: LoanTab) {
-    LazyColumn(
-        modifier = Modifier.fillMaxSize(),
-        contentPadding = PaddingValues(16.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp)
-    ) {
-        item {
-            Card(
-                colors = CardDefaults.cardColors(containerColor = Color.White),
-                elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Column(modifier = Modifier.padding(16.dp)) {
-                    Text(
-                        text = "Data for: ${tab.title}",
-                        style = MaterialTheme.typography.titleSmall,
-                        color = Color.Black,
-                        fontFamily = FontFamily.Monospace,
-                    )
-                    Text(
-                        text = "Detailed information about your ${tab.title.lowercase()} goes here.",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = Color.Gray,
-                        fontFamily = FontFamily.Monospace,
-                    )
-                }
-            }
-        }
-    }
-}
-
 @Preview(showBackground = true)
 @Composable
 fun LoanPagerScreenPreview() {
     MaterialTheme {
-        LoanPagerScreen()
+
     }
 }

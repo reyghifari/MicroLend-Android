@@ -24,7 +24,7 @@ fun DashboardScreen(
 
     Scaffold(
         containerColor = BaseColor.White,
-        topBar = { WalletTopBar(dashboardViewModel) },
+        topBar = { if (selectedBar == 0) WalletTopBar(dashboardViewModel) },
         bottomBar = { WalletBottomBar(dashboardViewModel) }
     ) { paddingValues ->
         when(selectedBar){
@@ -32,7 +32,7 @@ fun DashboardScreen(
                 HomeScreen(dashboardViewModel, paddingValues)
             }
             1 -> {
-                LoanScreen(dashboardViewModel)
+                LoanScreen()
             }
             2 -> {
                 ProfileScreen(dashboardViewModel)

@@ -1,5 +1,6 @@
 package com.kucingoyen.dashboard.screen
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -22,6 +23,7 @@ import com.kucingoyen.dashboard.screen.component.WalletCard
 fun HomeScreen(dashboardViewModel: DashboardViewModel, paddingValues: PaddingValues) {
     Column(
         modifier = Modifier
+            .background(BaseColor.JetBlack.Minus80)
             .padding(paddingValues)
             .fillMaxSize()
             .padding(horizontal = 16.dp)
